@@ -1,0 +1,65 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html class="dark" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+			rel="stylesheet"
+		/>
+		<style is:global>
+			.cyber-border {
+				clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+			}
+			.glitch-text {
+				text-shadow: 2px 0 #ff007a, -2px 0 #0d7ff2;
+			}
+			.scanlines {
+				background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+					linear-gradient(
+						90deg,
+						rgba(255, 0, 0, 0.06),
+						rgba(0, 255, 0, 0.02),
+						rgba(0, 0, 255, 0.06)
+					);
+				background-size: 100% 4px, 3px 100%;
+				pointer-events: none;
+			}
+			@keyframes marquee {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+			.animate-marquee {
+				animation: marquee 20s linear infinite;
+				display: flex;
+				width: fit-content;
+			}
+			.neon-shake-glow {
+				filter: drop-shadow(0 0 4px #0d7ff2) drop-shadow(0 0 12px #0d7ff2);
+			}
+		</style>
+	</head>
+	<body
+		class="bg-background-light dark:bg-background-dark font-display text-white selection:bg-primary/40"
+	>
+		<slot />
+	</body>
+</html>
