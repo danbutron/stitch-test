@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Inventory from '../components/Inventory.astro';
+import Lore from '../components/Lore.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Neon Bite - Upgrade Your Hunger">
+	<div class="relative min-h-screen flex flex-col overflow-x-hidden">
+		<div class="fixed inset-0 scanlines z-50 opacity-20 pointer-events-none"></div>
+		<Header />
+		<main class="flex-grow">
+			<Hero />
+			<Inventory />
+			<Lore />
+		</main>
+		<Footer />
+	</div>
+</Layout>
